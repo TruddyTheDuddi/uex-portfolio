@@ -2,6 +2,11 @@
     --highlight: #ffcc00; /* Adjust the color code to your preferred shade of yellow */
 }
 
+@font-face {
+    font-family: Bake Bunny Round, sans-serif;
+    src: url("../fonts/BakeBunny-Round.otf");
+}
+
 body {
     font-family: 'Poppins', sans-serif;
     font-weight: 200;
@@ -250,6 +255,11 @@ main.transition{
     display: grid;
 }
 
+#project1 h1{
+    font-family: 'Bake Bunny Round', sans-serif;
+    font-size: 3.6em;
+}
+
 #project1::before{
     /* background-color: rgba(115, 115, 115, 0.1); */
     background-image: url("../img/p1/texture.png");
@@ -473,6 +483,19 @@ main.transition{
     padding: 0.2em 0.5em;
     background-color: rgba(0, 0, 0, 0.5);
     font-weight: 300;
+}
+
+#project2 #image-grid .image .img-title{
+    backdrop-filter: blur(8px) saturate(0.4);
+}
+
+#project2 #image-grid .image .img-title b {
+    font-weight: 600;
+}
+
+#project2 #image-grid .image .img-title b::after {
+    content: "/";
+    font-weight: 200;
 }
 
 #project2 .end{
