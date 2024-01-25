@@ -1,0 +1,52 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+}
+
+.circle-container {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    animation: swing 10s ease-in-out infinite;
+}
+
+.central-circle {
+    width: 300px;
+    height: 300px;
+    /* background-color: #555; */
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.dot {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    position: absolute;
+    cursor: pointer;
+}
+
+.tooltip {
+    position: absolute;
+    background-color: #fff;
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 0.8em;
+    pointer-events: none;
+}
+
+@keyframes swing {
+    0%, 100% { transform: rotate(-5deg); }
+    50% { transform: rotate(5deg); }
+}

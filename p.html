@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects Visualization</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/projects.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@100;700&family=Bebas+Neue&family=DM+Serif+Display&family=Poppins:wght@100;300;500;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700&display=swap" rel="stylesheet"> 
+
+</head>
+<body>   
+
+    <main id="main" class="transitionnnn">
+        <div id="intro" class="project" style="display: none;">
+            <div class="box">
+                <h1 id="loading">
+                    LOADING...
+                </h1>
+                <h2></h2>
+            </div>
+        </div>
+
+        <!-- Project 1 -->
+        <div id="project1" class="project">
+            <div class="header" style="background-image: url(img/p1/bruh2.png);">
+                <h1>Empathy</h1>
+                <div></div>
+            </div>
+
+            
+            <div class="content">
+                
+                <div class="headline">
+                    <h1>Optimizing daily commuting with a Kid</h1>
+                    <h2>How to save parents' valuable time and energy & eliminate stress due to a complicated commute? Two concepts that revamp the daily routine for parents by addressing the central issue head-on.</h2>
+                </div>
+
+                <div class="lineimg rev">
+                    <div class="img">
+                        <h3>Delivery</h3>
+                        <img src="img/p1/car1.png">
+                    </div>
+                    <div class="text">
+                        <h4>Comfy Self Driving Bubble Car to Daycare</h4>
+                        <img src="img/p1/car2.png" alt="">
+                        <div>We've developed <b>autonomous friendly “Bubble Cars”</b> to streamline the morning drop-offs, shuttling children safely to daycare centers across Lausanne.</div>
+                        <div>These vehicles are tailored for young passengers, ensuring a secure and fun commute. Where necessary, a supervisor is onboard to monitor and interact with the children, enhancing the journey with care and entertainment.</div>
+                    </div>
+                </div>
+
+                <div class="lineimg">
+                    <div class="img">
+                        <h3>Relocation</h3>
+                        <img src="img/p1/daycare2.png">
+                    </div>
+                    <div class="text">
+                        <h4>A mobile childcare van streamlining the journey for parents</h4>
+                        <div>The van efficiently <b>picks up children from various places</b> convenient for the parent. Once all the kids are on board, it relocates to a designated childcare hub to function as an outdoors daycare.</div>
+                        <div>The van is designed to provide a safe, comfortable, and engaging environment during transit. Ensuring they arrive at the childcare hub content and ready for the day.</div>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+        <!-- Project 2 -->
+        <div id="project2" class="project"  style="display: grid;">
+            <div class="header">
+                <div class="text">
+                    <h1>DECOMPOSITION</h1>
+                    <h2>Maritime-Inspired Fashion Rope Creations</h2>
+                </div>
+                <div class="img"></div>
+            </div>
+
+            <div class="content">
+                <div class="narrow-text">
+                    <div><b>We are retailing sailing ropes into stylish, durable baskets.</b> These ropes, once integral to marine adventures but no longer suitable for sailing, still possess remarkable strength and resilience. </div>
+                    <div>We repurpose them, channeling their rugged history into functional, eco-friendly products that capture the essence of the sea. </div>
+                </div>
+
+                <div class="interaction">
+
+                    <div class="prompt-area">
+                        <div class="ranger">
+                            <div class="ranger-hint">
+                                <img src="img/scroll-mouse.svg" class="notice">
+                                <span><b>Vary prompt weights</b> to adjust the <b>properties</b> of the products</span>
+                            </div>
+                            <input type="range" id="slider" min="0" max="6" step="1" value="0" autocomplete="off">
+                        </div>                 
+                        <div id="prompt">
+                            <div class="prompt-part">A product line of sailor theme baskets :: <span class="weight"></span></div>
+                            <div class="prompt-part">Baskets are made out of recycled sails :: <span class="weight"></span></div>
+                            <div class="prompt-part">Baskets are made out of white sailing rope :: <span class="weight"></span></div>
+                            <div class="prompt-part">A premium product :: <span class="weight"></span></div>
+                            <div class="prompt-part">Product is made from worn out materials :: <span class="weight"></span></div>
+                        </div>   
+                    </div>
+
+
+                    <div id="image-grid">
+                        <!-- Placeholder for 6 images -->
+                        <div class="image" id="image1">
+                            <img src="img/p2/a.png" alt="">
+                            <div class="img-title">A: Premium basket product</div>
+                        </div>
+                        <div class="image" id="image2">
+                            <img src="img/p2/b.png" alt="">
+                            <div class="img-title">B: Rope only product</div>
+                        </div>
+                        <div class="image" id="image3">
+                            <img src="img/p2/c.png" alt="">
+                            <div class="img-title">C: Sail only product</div>
+                        </div>
+                        <div class="image" id="image4">
+                            <img src="img/p2/d.png" alt="">
+                            <div class="img-title">D: Materials are worn out</div>
+                        </div>
+                        <div class="image" id="image5">
+                            <img src="img/p2/e.png" alt="">
+                            <div class="img-title">E: Colorful handcraft product</div>
+                        </div>
+                        <div class="image" id="image6">
+                            <img src="img/p2/f.png" alt="">
+                            <div class="img-title">F: Stylish very sea themed baskets</div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="end">
+                    <div class="narrow-text">
+                        <h3>IN SEARCH OF OUR PRODUCT BRAND</h3>
+                        <div>We settled for <b>a premium product</b> with <b>ropes</b> as the main material. We opted for materials that were <b>not too worn out,</b> and <b>avoided excessive color</b> to mimic premium brands.</div>
+                    </div>
+
+                    <br>
+
+                    <div class="narrow-text">
+                        <h2>The material of these baskets give them a unique look and feel. </h2>
+                    </div>
+    
+                    <img src="img/p2/final.png" alt="" class="full-img">
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div id="project3" class="project">Project 3 Content</div>
+
+        <!-- Project 4 -->
+        <div id="project4" class="project">Project 4 Content</div>
+
+        <!-- Project 5 -->
+        <div id="project5" class="project">Project 5 Content</div>
+
+        <!-- Project 6 -->
+        <div id="project6" class="project">Project 6 Content</div>
+    </main>
+
+    <div class="selector-bar">
+        <div class="circle-holder">
+            <div class="circle" data-project="#project1"></div>
+            <div class="circle" data-project="#project2"></div>
+            <div class="circle" data-project="#project3"></div>
+            <div class="circle" data-project="#project4"></div>
+            <div class="circle" data-project="#project5"></div>
+            <div class="circle" data-project="#project6"></div>
+        </div>
+
+        <img id="show-footer-btn" src="img/arrow.svg">
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-desc">
+                    <h3><b>DANIEL DEMKO</b> / 2024</h3>
+                    <small>This project is the final submission for the course CS-489 (Experience Design), showcasing an interactive portfolio utilizing generative AI tools.</small>
+                    <p>CS-489 Experience Design, EPFL</p>
+                    <img src="img/logo.svg" alt="Logo" class="footer-logo">
+                </div>
+                <div class="footer-links">
+                    <a href="https://github.com/TruddyTheDuddi/uex-portfolio" target="_blank">GitHub Repo</a>
+                    <a href="https://www.midjourney.com/" target="_blank">Midjourney</a>
+                    <a href="https://fonts.google.com/" target="_blank">Fonts by Google</a>
+                    <a href="">ChatGPT History</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/projects.js"></script>
+</body>
+</html>
