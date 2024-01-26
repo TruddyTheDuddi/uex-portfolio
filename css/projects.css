@@ -20,7 +20,7 @@ body {
 
 .project{
     display: none;
-    margin-bottom: 10em;
+    padding-bottom: 10em;
     gap: 5em;
 }
 
@@ -39,6 +39,7 @@ body {
     display: grid;
     background-color: #111111;
     opacity: 0;
+    z-index: 100;
 }
 
 .selector-bar.show{
@@ -355,6 +356,7 @@ main.transition{
 
 #project2 .header h1{
     font-family: Outfit, sans-serif;
+    margin-left: -0.3em;
 }
 
 #project2 .header h2{
