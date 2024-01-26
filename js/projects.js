@@ -280,6 +280,7 @@ let proj6 = [
         desc: 'Combining the scaffoldings and the graffiti\'s style, created a funky and colorful base for our building.',
         img: [
             "img/p6/graffiti_build.png",
+            "img/p6/graffiti_build2.png",
         ],
         parentImg: [3,4]
     },
@@ -289,7 +290,7 @@ let proj6 = [
         img: [
             "img/p6/fabric_build.png",
         ],
-        parentImg: [2,3,4]
+        parentImg: [2,6,4]
     },
     {
         name: 'Lively lounge bars',
@@ -314,85 +315,118 @@ let proj6 = [
         name: 'Finalizing in the context of the stadium',
         desc: 'We place our building in the context of the stadium, making sure it fits in the environment and its temporary aspect.',
         img: [
-            "img/p6/final.png",
+            "img/p6/final_narrow.png",
         ],
         parentImg: [0,9]
     }
 ];
 
-function createSlide(project, index) {
-    // Create the main slide container
-    const slide = document.createElement('div');
-    slide.classList.add('slide');
-    if (index === 0) slide.classList.add('active');
-
-    // Create a container for the content (title, description, parent images)
-    const contentDiv = document.createElement('div');
-    contentDiv.classList.add('content');
-
-    // Add title
-    const title = document.createElement('h2');
-    title.textContent = project.name;
-    contentDiv.appendChild(title);
-
-    // Add description
-    const description = document.createElement('p');
-    description.textContent = project.desc;
-    contentDiv.appendChild(description);
-
-    // Add parent images and titles
-    project.parentImg.forEach(parentIndex => {
-        const parentProject = proj6[parentIndex];
-
-        const parentTitle = document.createElement('div');
-        parentTitle.textContent = parentProject.name;
-        parentTitle.classList.add('parent-title');
-        contentDiv.appendChild(parentTitle);
-
-        parentProject.img.forEach(imgSrc => {
-            const img = document.createElement('img');
-            img.src = imgSrc;
-            img.classList.add('parent-image');
-            img.onclick = () => showSlide(parentIndex);
-            contentDiv.appendChild(img);
-        });
+// Load all images in the cache
+proj6.forEach(project => {
+    project.img.forEach(src => {
+        const img = new Image();
+        img.src = src;
     });
-
-    // Append content container to the slide
-    slide.appendChild(contentDiv);
-
-    // Add main image(s)
-    project.img.forEach(imgSrc => {
-        const img = document.createElement('img');
-        img.src = imgSrc;
-        slide.appendChild(img);
-    });
-
-    return slide;
-}
-
-
-function showSlide(index) {
-    const slides = document.querySelectorAll('.slide');
-    slides.forEach((slide, i) => {
-        slide.classList.toggle('active', i === index);
-    });
-}
-
-// Create and append all slides
-proj6.forEach((project, index) => {
-    const slide = createSlide(project, index);
-    document.getElementById('slideshow').appendChild(slide);
 });
 
-// Navigation
+
+let currentSlideIndex = 0;
+let contentTimeout, imagesTimeout, parentTimeout;
+
+function updateSlide() {
+    const project = proj6[currentSlideIndex];
+
+    // Clear existing timeouts
+    clearTimeout(contentTimeout);
+    clearTimeout(imagesTimeout);
+    clearTimeout(parentTimeout);
+
+    // Apply fade-out effect to text
+    const textElement = document.getElementById('text');
+    textElement.classList.add('fade-out');
+
+    // Update content after fade-out
+    contentTimeout = setTimeout(() => {
+        // Update Title
+        document.getElementById('title').innerHTML = `<small>${currentSlideIndex + 1}.</small> ${project.name}`;
+
+        // Update Description
+        document.getElementById('desc').textContent = project.desc;
+
+        // Remove fade-out class
+        textElement.classList.remove('fade-out');
+    }, 700);
+
+    // Update Images with Fade Effect
+    const imagesContainer = document.getElementById('images');
+    imagesContainer.classList.add('transition');
+    imagesTimeout = setTimeout(() => {
+        imagesContainer.innerHTML = ''; // Clear current images
+        project.img.forEach(imgSrc => {
+            const img = document.createElement('img');
+            img.src = imgSrc;
+            imagesContainer.appendChild(img);
+        });
+        imagesContainer.classList.remove('transition');
+    }, 500);
+
+    // Update Parent Concepts
+    const parentConceptsContainer = document.getElementById('parent-contepts');
+    parentConceptsContainer.classList.add('fade-out');
+
+    parentTimeout = setTimeout(() => {
+        parentConceptsContainer.innerHTML = ''; // Clear current parent concepts
+        parentConceptsContainer.classList.remove('fade-out');
+
+        project.parentImg.forEach((parentIndex, idx) => {
+            const parentProject = proj6[parentIndex];
+            const conceptDiv = document.createElement('div');
+            conceptDiv.classList.add('concept', 'fade-out');
+            conceptDiv.innerHTML = `
+                <h3>${parentProject.name}</h3>
+                <div class="concept-imgs">
+                    ${parentProject.img.map(src => `<img src="${src}" alt="">`).join('')}
+                </div>`;
+            conceptDiv.addEventListener('click', () => { currentSlideIndex = parentIndex; updateSlide(); });
+
+            // Append with a delay for cascade effect
+            setTimeout(() => {
+                parentConceptsContainer.appendChild(conceptDiv);
+                conceptDiv.classList.remove('fade-out');
+            }, idx * 200); // Each subsequent element has a longer delay
+        });
+    }, 1000);
+
+    // Set the active dot in #range to the current slide
+    const dots = range.querySelectorAll('.dot');
+    dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentSlideIndex);
+    });
+
+}
+
+// Navigation Event Listeners
 document.getElementById('prev').addEventListener('click', () => {
-    const activeIndex = [...document.querySelectorAll('.slide')].findIndex(slide => slide.classList.contains('active'));
-    showSlide(Math.max(0, activeIndex - 1));
+    currentSlideIndex = Math.max(0, currentSlideIndex - 1);
+    updateSlide();
 });
 
 document.getElementById('next').addEventListener('click', () => {
-    const activeIndex = [...document.querySelectorAll('.slide')].findIndex(slide => slide.classList.contains('active'));
-    const nextIndex = Math.min(proj6.length - 1, activeIndex + 1);
-    showSlide(nextIndex);
+    currentSlideIndex = Math.min(proj6.length - 1, currentSlideIndex + 1);
+    updateSlide();
 });
+
+// For every project, create a dot in #range
+const range = document.getElementById('range');
+proj6.forEach((project, index) => {
+    const dot = document.createElement('div');
+    dot.classList.add('dot');
+    dot.addEventListener('click', () => {
+        currentSlideIndex = index;
+        updateSlide();
+    });
+    range.appendChild(dot);
+});
+
+// Initial Update
+updateSlide();
