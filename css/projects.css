@@ -286,7 +286,7 @@ main.transition{
 
 #project1::before{
     /* background-color: rgba(115, 115, 115, 0.1); */
-    background-image: url("../img/p1/texture.png");
+    background-image: url("../img/p1/texture.webp");
     opacity: 0.1;
     background-size: 50em;
     background-repeat: repeat;
@@ -396,7 +396,7 @@ main.transition{
     bottom: 0;
     z-index: -1;
 
-    background-image: url("../img/p2/basket_clean.png");
+    background-image: url("../img/p2/basket_clean.webp");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -593,7 +593,7 @@ main.transition{
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 0.5em;
 
-    background-image: url("../img/p3/cave.png");
+    background-image: url("../img/p3/cave.webp");
     background-size: 120%;
     background-position: center;
     background-repeat: no-repeat;
@@ -740,7 +740,7 @@ main.transition{
 
 #project3 .yo-mister-white::before{
     content: "";
-    background-image:url(../img/p3/bg.png);
+    background-image:url(../img/p3/bg.webp);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -843,7 +843,7 @@ main.transition{
 
 
 #project4 .gridimg .img.bged{
-    background-image: url(../img//p4/demi_bg.png);
+    background-image: url(../img/p4/demi_bg.webp);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -946,16 +946,10 @@ main.transition{
     font-family: SuisseIntlMono;
     background-color: white;
     color: black;
-
-
-    /* background-image: url(../img/p5/bg_drop.png);
-    background-size: cover;
-    background-position: top center;
-    background-repeat: no-repeat; */
 }
 
 #project5 .header{
-    background-image: url(../img/p5/city_bg.png);
+    background-image: url(../img/p5/city_bg.webp);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
