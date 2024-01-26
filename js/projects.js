@@ -169,6 +169,54 @@ document.getElementById('slider').addEventListener('input', function() {
     });
 });
 
-
 // Initialize with the first image selected
 document.getElementById('slider').dispatchEvent(new Event('input'));
+
+
+function updateParallax() {
+    const caveboxes = document.querySelectorAll('#cavebox');
+
+    caveboxes.forEach(cavebox => {
+        const elementOffsetTop = cavebox.offsetTop; // Position relative to the document
+        const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+
+        // Calculate the parallax effect
+        const parallaxSpeed = -0.5; // Adjust this for a stronger or weaker effect
+        const offset = (elementOffsetTop - scrollY) * parallaxSpeed - 100;
+
+        // Apply the parallax background position
+        cavebox.style.backgroundPosition = `center ${offset}px`;
+    });
+}
+
+// Attach the parallax effect to the scroll event
+window.addEventListener('scroll', updateParallax);
+
+// Initialize the effect on load
+function updateParallaxDrone() {
+    const drone = document.getElementById('drone');
+    if (!drone) return;
+
+    // Calculate the vertical center of the viewport
+    const viewportCenter = window.innerHeight / 2;
+
+    // Get the drone element's position relative to the viewport
+    const droneRect = drone.getBoundingClientRect();
+
+    // Calculate the offset of the drone element's center from the viewport center
+    const droneCenter = droneRect.top + droneRect.height / 2;
+    const offsetFromViewportCenter = droneCenter - viewportCenter;
+
+    // Calculate the translateY value
+    const parallaxFactor = -0.15; // Adjust for stronger or weaker effect
+    let translateY = -offsetFromViewportCenter * parallaxFactor;
+
+    // Apply the transform
+    drone.style.transform = `translate(-1em, ${translateY}px)`;
+}
+
+// Attach the function to scroll event
+window.addEventListener('scroll', updateParallaxDrone);
+
+// Initialize the parallax effect
+updateParallaxDrone();

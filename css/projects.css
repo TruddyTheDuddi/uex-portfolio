@@ -541,3 +541,191 @@ main.transition{
     border-radius: 50%;
     border: 3px solid #111111;
 }
+
+/* Project 3 */
+#project3{
+    background-color: black;
+}
+
+#project3 h1{
+    font-family: Poppins, sans-serif;
+    font-weight: 500;
+    font-size: 7.4em;
+    margin: 0 0 1.25em 0.2em;
+    position: relative;
+}
+
+#project3 .cavebox{
+    position: relative;
+    display: grid;
+    gap: 1em;
+    width: 100%;
+    max-width: 800px;
+    aspect-ratio: 1/1;
+
+    margin-left: -3em;
+
+    /* margin: auto; */
+    padding: 2em;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 0.5em;
+
+    background-image: url("../img/p3/cave.png");
+    background-size: 120%;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+
+    align-content: flex-end;
+    pointer-events: none;
+
+    margin-bottom: -5em;
+}
+
+#project3 .cavebox .cover{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    scale: 1.01;
+}
+
+#project3 h2.larger{
+    margin-left: 3em;
+    font-size: 1.8em;
+    max-width: 700px;
+    /* margin-top: -3em; */
+    z-index: 1;
+}
+
+#project3 h3{
+    font-size: 1.4em;
+    text-transform: uppercase;
+    max-width: 280px;
+    display: flex;
+    gap: 1em;
+    margin-left: -2em;
+}
+
+#project3 h3::before{
+    content: "";
+    display: block;
+    width: 0.2em;
+    background-color: white;
+    border-radius: 0.4em;
+}
+
+#project3 .table-flex{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6em;
+    align-items: flex-start;
+    z-index: 2;
+}
+
+#project3 .table-flex .table{
+    display: grid;
+    gap: 4em 2em;
+    grid-template-columns: 1fr 1fr;
+    margin: 0 auto;
+    max-width: 460px;
+    opacity: 0.5;
+    user-select: none;
+}
+
+#project3 .table-flex .table .title{
+    font-weight: 600;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    display: block;
+}
+
+#project3 .table-flex .table .cont{
+    font-size: 1.4em;
+    font-family: 'DM Serif Display', serif;
+    display: block;
+}
+
+
+#project3 .table-flex .text{
+    font-size: 1.2em;
+    display: grid;
+    gap: 1em;
+    margin-top: 4em;
+}
+
+#project3 .large-img{
+    margin-top: -500px;
+    width: 62%;
+    max-width: 1400px;
+}
+
+#project3 .yo-mister-white{
+    position: relative;
+    background-color: white;
+    margin-top: -100px;
+    color: black;
+    font-size: 1.2em;
+    padding-top: 6em;
+    gap: 2em;
+    display: grid;
+}
+
+#project3 .yo-mister-white h2{
+    font-size: 1.4em;
+    margin: 0;
+}
+
+#project3 .drone-shot{
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    align-items: center;
+    padding-bottom: 10em;
+    overflow: hidden;
+}
+
+#project3 .drone-shot .text{
+    max-width: 350px;
+    display: grid;
+    margin: auto;
+    gap: 2em;
+    /* z-index: 1; */
+}
+
+#project3 .drone-shot img{
+    width: 100%;
+    scale: 1.6;
+    transform: translateX(-1em);
+    animation: levitate-rotate 8s ease-in-out infinite;
+}
+
+@keyframes levitate-rotate {
+    0%, 100% {
+        rotat: 0deg;
+    }
+    50%{
+        rotate: 1deg;
+    }
+    
+}
+
+#project3{
+    padding-bottom: 0em;
+}
+
+#project3 .yo-mister-white::before{
+    content: "";
+    background-image:url(../img/p3/bg.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    left: 45%;
+    right: 0;
+    bottom: 0;
+
+    clip-path: polygon(2em 0, 100% 0, 100% 100%, 0 100%);
+}
