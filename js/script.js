@@ -44,8 +44,7 @@ function changeImage(index, resetInterval = false) {
 setupCarousel();
 interval = setInterval(() => changeImage((currentImageIndex + 1) % images.length, false), 5000);
 
-document.getElementById('view-summary').addEventListener('click', function() {
-    document.getElementById('introduction').classList.add('hidden');
-    document.getElementById('desc').classList.add('hidden');
-    document.getElementById('summary').classList.remove('hidden');
+document.getElementById('view-projects').addEventListener('click', function() {
+    // Go to projects page
+    window.location.href = 'project-page.html';
 });

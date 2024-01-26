@@ -1272,6 +1272,7 @@ main.transition{
 #concepts-visu .info .parent.fade-out{
     transition: 0.5s opacity ease-out;
     opacity: 0;
+    pointer-events: none;
 }
 
 #concepts-visu .info .parent .concept{
