@@ -1,23 +1,36 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const images = document.getElementsByTagName('img');
-    const totalImages = images.length;
+    let totalImages = document.getElementsByTagName('img').length;
     let loadedImages = 0;
 
+    // Function to update the loaded image count
     const updateLoadedCount = () => {
-        document.querySelector('.loaded').textContent = `(Loaded Images: ${loadedImages} / ${totalImages})`;
+        document.querySelector('.loaded').textContent = `Loaded Images: ${loadedImages} / ${totalImages}`;
     };
 
-    Array.from(images).forEach(img => {
+    // Add load listeners to existing images in the DOM
+    Array.from(document.images).forEach(img => {
         img.addEventListener('load', () => {
             loadedImages++;
             updateLoadedCount();
         });
-
-        // Check if the image is already loaded (cached images)
+        // Immediately increment count if the image is already loaded (cached)
         if (img.complete) {
             loadedImages++;
             updateLoadedCount();
         }
+    });
+
+    // Preload images from proj6 and update the count
+    proj6.forEach(project => {
+        project.img.forEach(src => {
+            const img = new Image();
+            img.src = src;
+            totalImages++; // Increment the total image count for each new image
+            img.addEventListener('load', () => {
+                loadedImages++;
+                updateLoadedCount();
+            });
+        });
     });
 
     // Initial update
@@ -347,15 +360,6 @@ let proj6 = [
         parentImg: [0,9]
     }
 ];
-
-// Load all images in the cache
-// proj6.forEach(project => {
-//     project.img.forEach(src => {
-//         const img = new Image();
-//         img.src = src;
-//     });
-// });
-
 
 let currentSlideIndex = 0;
 let contentTimeout, imagesTimeout, parentTimeout;
