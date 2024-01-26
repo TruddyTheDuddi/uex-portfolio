@@ -742,8 +742,10 @@ main.transition{
     gap: 2em;
     margin: auto;
     max-width: 1000px;
-    align-items: center;
+    align-items: flex-end;
     margin-top: 2em;
+    padding-bottom: 2.5em;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 8em));
 }
 
 #project4 .header img{
@@ -755,7 +757,7 @@ main.transition{
 #project4 .header h1{
     font-family: Urbanist, sans-serif;
     font-weight: 100;
-    padding-top: 3em;
+    padding-bottom: 1em;
     color: rgb(48, 178, 233);
 }
 
