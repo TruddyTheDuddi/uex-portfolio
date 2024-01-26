@@ -316,6 +316,7 @@ let proj6 = [
         desc: 'We place our building in the context of the stadium, making sure it fits in the environment and its temporary aspect.',
         img: [
             "img/p6/final_narrow.png",
+            "img/p6/final.png",
         ],
         parentImg: [0,9]
     }

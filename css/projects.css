@@ -1157,6 +1157,7 @@ main.transition{
 #project6{
     background-color: white;
     color: black;
+    padding-bottom: 0;
 }
 
 #project6 .header{
@@ -1407,5 +1408,63 @@ main.transition{
 }
 
 #concepts-visu .nav #range .dot:hover {
+    opacity: 1;
+}
+
+#project6 .finalimg{
+    display: grid;
+    gap: 1em;
+    margin: auto;
+    width: 100%;
+    align-items: flex-start;
+}
+
+#project6 .finalimg h1{
+    font-family: Outfit;
+    font-size: 4em;
+    font-weight: 500;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0.5em;
+    width: calc(100% - 1em);
+
+    display: flex;
+    gap: 0.5em;
+
+    align-items: center;
+}
+
+#project6 .finalimg h1 small{
+    font-size: 0.3em;
+    font-weight: 300;
+    text-transform: uppercase;
+    max-width: 260px;
+    line-height: normal;
+}
+
+#project6 .finalimg .img{
+    position: relative;
+    display: block;
+    padding-bottom: 4em;
+    background-color: #111111;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+#project6 .finalimg img{
+    display: block;
+    width: 100%;
+}
+
+#project6 .finalimg img.field{
+    position: absolute;;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transition: 1s;
+    opacity: 0;
+}
+
+#project6 .finalimg .img:hover img.field{
     opacity: 1;
 }
