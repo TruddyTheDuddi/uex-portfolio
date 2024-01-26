@@ -1152,3 +1152,227 @@ main.transition{
     transform: translate(-4em, -1em);
     /* mix-blend-mode: hard-light */
 }
+
+/* Project 6 */
+#project6{
+    background-color: white;
+    color: black;
+}
+
+#project6 .header{
+    position: relative;
+    margin: auto;   
+    display: grid;
+    max-width: 1200px;
+    width: 100%;
+    align-items: center;
+    padding: 8em 0;
+}
+
+#project6 .header h1{
+    font-family: Outfit;
+    font-size: 4.5em;
+    font-weight: 500;
+    max-width: 540px;
+    padding: 0.5em;
+
+    display: flex;
+    gap: 0.5em;
+}
+
+#project6 .header h1 b{
+    font-weight: 800;
+}
+
+#project6 .header h1::before{
+    content: "";
+    width: 0.3em;
+    background-color: rgba(0,0,0,0.1);
+}
+
+#project6 .imgline{
+    display: grid;
+    gap: 2em;
+    grid-template-columns: 1fr 1.1fr;
+    align-items: flex-start;
+}
+
+#project6 .imgline .img{
+    margin-top: 4em;
+    max-height: 700px;
+    overflow: hidden;
+}
+
+#project6 .imgline img{
+    width: 100%;
+    object-fit: contain;
+    display: block;    
+}
+
+#project6 .imgline .text{
+    max-width: 400px;
+    display: grid;
+    gap: 2em;
+    font-size: 1.2em;
+    margin: 0 auto;
+    padding: 1em;
+}
+
+#project6 .imgline .text h2{
+    font-size: 1.8em;
+}
+
+#project6 h3{
+    font-size: 1.4em;
+    text-transform: uppercase;
+}
+
+#concepts-visu{
+    display: grid;
+    gap: 2em;
+    width: 100%;
+    grid-template-columns: 1.2fr 1fr;
+    align-items: flex-start;
+}
+
+#concepts-visu .images{
+    display: grid;
+    gap: 1em;
+}
+
+#concepts-visu .images img{
+    width: 100%;
+    display: block;
+    max-height: 500px;
+    object-fit: cover;
+}
+
+#concepts-visu .info{
+    display: grid;
+    gap: 2em;
+}
+
+#concepts-visu .info .parent{
+    min-height: 16em;
+    display: grid;
+    gap: 1em;
+    align-items: flex-start;
+    overflow-y: scroll;
+    padding: 1em;
+}
+
+#concepts-visu .info .parent .concept{
+    position: relative;
+    display: grid;
+    font-size: 0.6em;
+    gap: 0.5em;
+    padding: 1em;
+    border: 2px solid black;
+    box-shadow: 5px 5px 0 black;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#concepts-visu .info .parent .concept::before{
+    position: absolute;
+    content: "";
+}
+
+#concepts-visu .info .parent .concept:hover{
+    box-shadow: 8px 8px 0 black;
+}
+
+#concepts-visu .info .parent h3::before{
+    content: '+';
+    margin-right: 0.2em;
+}
+
+#concepts-visu .info .parent .concept-imgs{
+    display: flex;
+    gap: 0.5em;
+    overflow-y: scroll;
+}
+
+#concepts-visu .info .parent .concept-imgs img{
+    aspect-ratio: 1/1;
+    max-height: 120px;
+    object-fit: cover;
+}
+
+
+
+
+#concepts-visu .text{
+    display: grid;
+    gap: 1em;
+    font-size: 1.1em;
+}
+
+#concepts-visu .text #desc{
+    padding-left: 1em;
+}
+
+#concepts-visu .text .nav{
+    font-weight: 600;
+    display: flex;
+    gap: 1em;
+}
+
+#concepts-visu .text .nav>span{
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#concepts-visu .text .nav>span:hover{
+    opacity: 0.5;
+    transition: 0s;
+}
+
+
+
+/* 
+.slideshow #slideshow {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.slideshow .slide {
+    display: none;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 20px;
+    padding: 20px;
+    align-items: start;
+}
+
+.slideshow .slide.active {
+    display: grid;
+}
+
+.slideshow .navigation {
+    text-align: center;
+    margin-top: 20px;
+    grid-column: 1 / -1; /* Span across all columns */
+}
+
+.slideshow img {
+    width: 100%;
+    height: auto;
+    grid-row: 1 / -1; /* Span across all rows */
+}
+
+.slideshow .content {
+    display: flex;
+    flex-direction: column;
+}
+
+.slideshow .parent-image {
+    width: 100%; /* Adjust as needed */
+}
+
+.slideshow .parent-title {
+    font-size: 0.8em;
+    margin-top: 5px;
+} */

@@ -221,3 +221,178 @@ window.addEventListener('scroll', updateParallax);
 // Initialize the parallax effect
 updateParallaxElements();
 updateParallax();
+
+
+// Generation of content for slideshow project 6
+let proj6 = [
+    {
+        name: 'An empty stadium at night',
+        desc: 'We need to consider the restrictions of a stadium in Gurzelen (at night). We made sure that our base image contained monutains, a forest in the background, and a relatively well mainted but empty stadium field.',
+        img: [
+            "img/p6/field_day.png",
+        ],
+        parentImg: []
+    },
+    {
+        name: 'Colorful and lively marketplaces',
+        desc: 'We are taking inspiration from markeplaces with many various colors, and the presence of many people.',
+        img: [
+            "img/p6/market.png",
+        ],
+        parentImg: []
+    },
+    {
+        name: 'Translucent colorful & warm fabrics',
+        desc: 'Inspired by Andrew Kudless, we use farbics to create a warm and spectuacular look.',
+        img: [
+            "img/p6/fabric_close.png",
+            "img/p6/fabric.png",
+        ],
+        parentImg: []
+    },
+    {
+        name: 'Graffiti, symbol of urban culture',
+        desc: 'Graffitis emobdy the urban culture and art. We use this style to make the place pop, bending shapes and colors.',
+        img: [
+            "img/p6/graffiti.png",
+        ],
+        parentImg: []
+    },
+    {
+        name: 'Scaffoldings as temporal structure',
+        desc: 'We use scaffoldings to create a structure that will hold the fabric and the lights. They represent a sense of temporality which fits perfectly in our case.',
+        img: [
+            "img/p6/scaffolding.png",
+        ],
+        parentImg: []
+    },
+    {
+        name: 'Bars and restaurants',
+        desc: "Center of the nightlife, bars and restaurants are a great source of inspiration. We use the lights and the colors to create a warm and welcoming atmosphere.",
+        img: [
+            "img/p6/bar.png",
+            "img/p6/bar2.png",
+        ],
+        parentImg: []
+    },
+    {
+        name: 'Graffit scaffoldings',
+        desc: 'Combining the scaffoldings and the graffiti\'s style, created a funky and colorful base for our building.',
+        img: [
+            "img/p6/graffiti_build.png",
+        ],
+        parentImg: [3,4]
+    },
+    {
+        name: 'Farbics on scaffolding',
+        desc: 'The combination of fabrics with scaffoldings give a sense of privacy, while keeping the place feeling open and safe.',
+        img: [
+            "img/p6/fabric_build.png",
+        ],
+        parentImg: [2,3,4]
+    },
+    {
+        name: 'Lively lounge bars',
+        desc: 'We combine the colorful atmosphere of the hubs with the lounges and bars to keep people entertained and relaxed.',
+        img: [
+            "img/p6/build1.png",
+            "img/p6/build2.png",
+            "img/p6/build3.png",
+        ],
+        parentImg: [5,7]
+    },
+    {
+        name: 'People & festivals',
+        desc: 'Combining the lively atmopshere of the marketplace with many people and the our colorful places, we create a place where people can meet and have fun.',
+        img: [
+            "img/p6/wide_test.png",
+            "img/p6/build4.png",
+        ],
+        parentImg: [1,8]
+    },
+    {
+        name: 'Finalizing in the context of the stadium',
+        desc: 'We place our building in the context of the stadium, making sure it fits in the environment and its temporary aspect.',
+        img: [
+            "img/p6/final.png",
+        ],
+        parentImg: [0,9]
+    }
+];
+
+function createSlide(project, index) {
+    // Create the main slide container
+    const slide = document.createElement('div');
+    slide.classList.add('slide');
+    if (index === 0) slide.classList.add('active');
+
+    // Create a container for the content (title, description, parent images)
+    const contentDiv = document.createElement('div');
+    contentDiv.classList.add('content');
+
+    // Add title
+    const title = document.createElement('h2');
+    title.textContent = project.name;
+    contentDiv.appendChild(title);
+
+    // Add description
+    const description = document.createElement('p');
+    description.textContent = project.desc;
+    contentDiv.appendChild(description);
+
+    // Add parent images and titles
+    project.parentImg.forEach(parentIndex => {
+        const parentProject = proj6[parentIndex];
+
+        const parentTitle = document.createElement('div');
+        parentTitle.textContent = parentProject.name;
+        parentTitle.classList.add('parent-title');
+        contentDiv.appendChild(parentTitle);
+
+        parentProject.img.forEach(imgSrc => {
+            const img = document.createElement('img');
+            img.src = imgSrc;
+            img.classList.add('parent-image');
+            img.onclick = () => showSlide(parentIndex);
+            contentDiv.appendChild(img);
+        });
+    });
+
+    // Append content container to the slide
+    slide.appendChild(contentDiv);
+
+    // Add main image(s)
+    project.img.forEach(imgSrc => {
+        const img = document.createElement('img');
+        img.src = imgSrc;
+        slide.appendChild(img);
+    });
+
+    return slide;
+}
+
+
+function showSlide(index) {
+    const slides = document.querySelectorAll('.slide');
+    slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+    });
+}
+
+// Create and append all slides
+proj6.forEach((project, index) => {
+    const slide = createSlide(project, index);
+    document.getElementById('slideshow').appendChild(slide);
+});
+
+// Navigation
+document.getElementById('prev').addEventListener('click', () => {
+    const activeIndex = [...document.querySelectorAll('.slide')].findIndex(slide => slide.classList.contains('active'));
+    showSlide(Math.max(0, activeIndex - 1));
+});
+
+document.getElementById('next').addEventListener('click', () => {
+    const activeIndex = [...document.querySelectorAll('.slide')].findIndex(slide => slide.classList.contains('active'));
+    const nextIndex = Math.min(proj6.length - 1, activeIndex + 1);
+    showSlide(nextIndex);
+});
