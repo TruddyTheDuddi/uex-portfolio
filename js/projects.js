@@ -55,10 +55,13 @@ function handleMouseMove(event) {
 // window.addEventListener('mousemove', handleMouseMove);
 
 // On load, get the height of the footer element and set the bottom attribute of the selector-bar to that negative value
+mainContent.classList.remove('transition');
 window.onload = () => {
+    // Get intro element and remove loading
+    const intro = document.getElementById('intro');
+    intro.classList.remove('loading');
+    
     // Fade in the main content
-    mainContent.classList.remove('transition');
-
     const footerHeight = document.querySelector('footer').offsetHeight + 2;
     const selectorBar = document.querySelector('.selector-bar');
     // Don't trigger animation of bottom attribute

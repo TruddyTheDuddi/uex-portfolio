@@ -173,6 +173,15 @@ main.transition{
     gap: 1em;
 }
 
+#intro.loading h3{
+    opacity: 0;
+}
+
+#intro h3{
+    transition: 0.5s;
+    opacity: 1;
+}
+
 .project{
     /* background-color: #dbdbdb; */
     font-size: 0.9em;
