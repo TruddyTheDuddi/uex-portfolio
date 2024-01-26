@@ -1253,7 +1253,7 @@ main.transition{
     opacity: 1;
     transition: 0.5s opacity ease-out, 0.5s transform ease-out;
     transform: translateX(-1em);
-    margin-top: -4em;
+    margin-top: -1em;
 }
 
 #concepts-visu .images.transition{
@@ -1278,6 +1278,13 @@ main.transition{
     gap: 1em;
     align-items: flex-start;
     padding: 1em;
+}
+
+#concepts-visu .info h4{
+    font-size: 0.9em;
+    text-transform: uppercase;
+    font-weight: 600;
+    max-width: 170px;
 }
 
 #concepts-visu .info .parent.fade-out{

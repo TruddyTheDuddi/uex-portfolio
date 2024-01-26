@@ -405,6 +405,13 @@ function updateSlide() {
         parentConceptsContainer.innerHTML = ''; // Clear current parent concepts
         parentConceptsContainer.classList.remove('fade-out');
 
+        // If there is a parent concept at least, add "Mixed from":
+        if (project.parentImg.length > 0) {
+            const mixedFrom = document.createElement('h4');
+            mixedFrom.textContent = 'Concept created by combining:';
+            parentConceptsContainer.appendChild(mixedFrom);
+        }
+
         project.parentImg.forEach((parentIndex, idx) => {
             const parentProject = proj6[parentIndex];
             const conceptDiv = document.createElement('div');
