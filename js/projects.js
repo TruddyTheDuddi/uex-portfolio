@@ -1,3 +1,30 @@
+document.addEventListener('DOMContentLoaded', function() {
+    const images = document.getElementsByTagName('img');
+    const totalImages = images.length;
+    let loadedImages = 0;
+
+    const updateLoadedCount = () => {
+        document.querySelector('.loaded').textContent = `(Loaded Images: ${loadedImages} / ${totalImages})`;
+    };
+
+    Array.from(images).forEach(img => {
+        img.addEventListener('load', () => {
+            loadedImages++;
+            updateLoadedCount();
+        });
+
+        // Check if the image is already loaded (cached images)
+        if (img.complete) {
+            loadedImages++;
+            updateLoadedCount();
+        }
+    });
+
+    // Initial update
+    updateLoadedCount();
+});
+
+
 const mainContent = document.getElementById('main');
 const projectElements = document.querySelectorAll('.project');
 const circleElements = document.querySelectorAll('.circle');
@@ -322,12 +349,12 @@ let proj6 = [
 ];
 
 // Load all images in the cache
-proj6.forEach(project => {
-    project.img.forEach(src => {
-        const img = new Image();
-        img.src = src;
-    });
-});
+// proj6.forEach(project => {
+//     project.img.forEach(src => {
+//         const img = new Image();
+//         img.src = src;
+//     });
+// });
 
 
 let currentSlideIndex = 0;

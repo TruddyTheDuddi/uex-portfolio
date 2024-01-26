@@ -177,6 +177,14 @@ main.transition{
     opacity: 0;
 }
 
+#intro h1 small{
+    font-size: 0.2em;
+    display: block;
+    opacity: 0.5;
+    font-family: Outfit, sans-serif;
+    font-weight: 500;
+}
+
 #intro h3{
     transition: 0.5s;
     opacity: 1;
