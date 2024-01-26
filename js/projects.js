@@ -86,7 +86,7 @@ window.onload = () => {
 
 // Parallax scroll effect on all header
 function parallax() {
-    const headlines = document.querySelectorAll('.header');
+    const headlines = document.querySelectorAll('.scrollable');
     
     headlines.forEach(headline => {
         const speed = 0.5
@@ -189,34 +189,35 @@ function updateParallax() {
     });
 }
 
-// Attach the parallax effect to the scroll event
-window.addEventListener('scroll', updateParallax);
+function updateParallaxElements() {
+    const parallaxElements = document.querySelectorAll('.parascroll');
 
-// Initialize the effect on load
-function updateParallaxDrone() {
-    const drone = document.getElementById('drone');
-    if (!drone) return;
+    parallaxElements.forEach(element => {
+        // Calculate the vertical center of the viewport
+        const viewportCenter = window.innerHeight / 2;
 
-    // Calculate the vertical center of the viewport
-    const viewportCenter = window.innerHeight / 2;
+        // Get the element's position relative to the viewport
+        const elementRect = element.getBoundingClientRect();
 
-    // Get the drone element's position relative to the viewport
-    const droneRect = drone.getBoundingClientRect();
+        // Calculate the offset of the element's center from the viewport center
+        const elementCenter = elementRect.top + elementRect.height / 2;
+        const offsetFromViewportCenter = elementCenter - viewportCenter;
 
-    // Calculate the offset of the drone element's center from the viewport center
-    const droneCenter = droneRect.top + droneRect.height / 2;
-    const offsetFromViewportCenter = droneCenter - viewportCenter;
+        // Get the parallax factor from the element's data attribute
+        const parallaxFactor = parseFloat(element.getAttribute('data-scroll-speed')) || 0;
 
-    // Calculate the translateY value
-    const parallaxFactor = -0.15; // Adjust for stronger or weaker effect
-    let translateY = -offsetFromViewportCenter * parallaxFactor;
+        // Calculate the translateY value
+        let translateY = -offsetFromViewportCenter * parallaxFactor;
 
-    // Apply the transform
-    drone.style.transform = `translate(-1em, ${translateY}px)`;
+        // Apply the transform
+        element.style.transform = `translateY(${translateY}px)`;
+    });
 }
 
 // Attach the function to scroll event
-window.addEventListener('scroll', updateParallaxDrone);
+window.addEventListener('scroll', updateParallaxElements);
+window.addEventListener('scroll', updateParallax);
 
 // Initialize the parallax effect
-updateParallaxDrone();
+updateParallaxElements();
+updateParallax();
