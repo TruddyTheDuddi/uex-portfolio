@@ -5,6 +5,9 @@ const circleElements = document.querySelectorAll('.circle');
 let timeout;
 circleElements.forEach(circle => {
     circle.addEventListener('click', function() {
+        // Start by scrolling to the top of the page smoothly
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+
         // Start by fading out current content
         mainContent.classList.add('transition');
 
@@ -26,18 +29,11 @@ circleElements.forEach(circle => {
             const selectedProject = document.querySelector(this.getAttribute('data-project'));
             selectedProject.style.display = 'grid';
 
-            console.log(selectedProject);
-
             // Fade in the new content
             mainContent.classList.remove('transition');
         }, 1000); // This duration should match the CSS transition time
     });
 });
-
-// Initialize with intro visible but faded in
-window.onload = () => {
-    
-};
 
 // Function to handle mouse movement and adjust the position of the selector bar
 function handleMouseMove(event) {
@@ -61,7 +57,7 @@ function handleMouseMove(event) {
 // On load, get the height of the footer element and set the bottom attribute of the selector-bar to that negative value
 window.onload = () => {
     // Fade in the main content
-    // mainContent.classList.remove('transition');
+    mainContent.classList.remove('transition');
 
     const footerHeight = document.querySelector('footer').offsetHeight + 2;
     const selectorBar = document.querySelector('.selector-bar');
@@ -74,7 +70,7 @@ window.onload = () => {
 
         // Set select project to loading id
         const loadingProject = document.getElementById('loading');
-        loadingProject.innerHTML = 'SELECT A PROJECT';
+        loadingProject.innerHTML = 'SELECT A PROJECT,';
     }, 10);
 
     // When clicking #show-footer-btn, toogle show-footer class to selectorBar
